@@ -1,18 +1,41 @@
+import { AutenticacaoGuard } from './autenticacao.guard';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MaterializeModule } from 'angular2-materialize';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
+import { ListaObrasComponent } from './lista-obras/lista-obras.component';
+import { DetalhesObrasComponent } from './detalhes-obras/detalhes-obras.component';
+import { AppService } from './app.service';
+import { AppRoutingModule } from './app.routing.module';
+import { HttpModule } from '@angular/http';
 
-
+registerLocaleData(localePt);
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    CadastroComponent,
+    ListaObrasComponent,
+    DetalhesObrasComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MaterializeModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'pt-BR'  },
+    AppService,
+    AutenticacaoGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+nav {
+  background-color: #1b5e20;
+}
+
+.recuo-menu {
+  margin-left: 100px;
+}
+
+.maiusculo {
+  text-transform: uppercase;
+}
+
+.botao-lista {
+  padding: 0 .5rem;
+}
+
+.branco {
+  color: #fff;
+}
+
+.rodape {
+  padding: 20px 0;
+  margin-top: 50px;
+}
+
+.tabs .tab a {
+color: #ff6d00 !important;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+background-color: transparent;
+color: #ff6d00 !important;
+}
+
+.tabs .indicator {
+background-color: #ff6d00 !important;
+}
+
+.material-icons{
+display: inline-flex;
+vertical-align: top;
+}
+
+.botao-excluir {
+margin-left: 90%;
+padding: 0 .5rem;
+margin-bottom: 1.5%;
+}
