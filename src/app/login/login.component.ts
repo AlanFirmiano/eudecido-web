@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.service.logar(this.login, this.senha).subscribe(
       res => {
         Materialize.toast("Logado!", 3000, "green")
-        localStorage.setItem("login", res.user)
+        localStorage.setItem("login", res.user._id)
         localStorage.setItem("token", res.token)
         this.router.navigate(['lista']);        
       },

@@ -7,7 +7,10 @@ import { Observable } from 'rxjs/Rx';
 export class AppService {
 
   private oapiUrl: string = "http://localhost:3003/oapi/"
-  private apiUrl: string = "http://localhost:3003/api/"
+  private apiUrl: string = "http://localhost:3003/api/obras/"
+  private options: RequestOptions;
+
+  public ob: any;
 
   constructor(private http: Http) { }
 
@@ -15,7 +18,14 @@ export class AppService {
   logar(login, senha): Observable<any>{
     return this.http.post(this.oapiUrl+'logar', {login, senha})
     .map(
-      res => { return res.json() }
+      res => {
+        let token = localStorage.getItem("token");
+        let header = new Headers();
+        header.append('Content-Type', 'application/json');
+        header.append('Authorization', token);
+        this.options = new RequestOptions({ headers: header }); 
+        return res.json() 
+      }
     );
   }
 
@@ -23,6 +33,25 @@ export class AppService {
     return this.http.post(this.oapiUrl+'cadastrar', user)
       .map(
         res => { return res.json() }
+      );
+  }
+
+  //obras
+  buscar(): Observable<any>{
+    return this.http.get(this.apiUrl+'?sort=-dataInicio', this.options)
+      .map(
+        res => { 
+          console.log(res.json())
+          return res.json() }
+      );
+  }
+
+  up(obra){
+    return this.http.put(this.apiUrl+obra._id, obra, this.options)
+      .map(
+        res => { 
+          console.log(res.json())
+          return res.json() }
       );
   }
 }
