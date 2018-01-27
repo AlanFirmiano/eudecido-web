@@ -11,7 +11,8 @@ export class DetalhesObrasComponent implements OnInit {
 
   private post;
   private ob: any;
-  
+  private lat = -3.7884705;
+  private lon = -39.2635227;
   constructor(private service: AppService) {
     this.ob = this.service.ob;
    }

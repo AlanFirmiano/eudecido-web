@@ -14,7 +14,7 @@ import { DetalhesObrasComponent } from './detalhes-obras/detalhes-obras.componen
 import { AppService } from './app.service';
 import { AppRoutingModule } from './app.routing.module';
 import { HttpModule } from '@angular/http';
-
+import { AgmCoreModule } from '@agm/core';
 registerLocaleData(localePt);
 @NgModule({
   declarations: [
@@ -29,7 +29,10 @@ registerLocaleData(localePt);
     MaterializeModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCnx7rLXtFCWwOWmBYxXyjX6FajutHqsLI'
+    }),
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt-BR'  },

@@ -38,7 +38,7 @@ export class AppService {
 
   //obras
   buscar(): Observable<any>{
-    return this.http.get(this.apiUrl+'?sort=-dataInicio&limit=50&populate=comentarios.user', this.options)
+    return this.http.get(this.apiUrl+'?sort=-dataInicio,lat&limit=50&populate=comentarios.user', this.options)
       .map(
         res => {
           console.log(res.json())

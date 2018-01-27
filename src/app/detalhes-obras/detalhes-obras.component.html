@@ -8,7 +8,12 @@
   <h6>Percentual Executado: {{ob.percentual_executado}}%</h6>
   <h6>Municipio: {{ob.municipio}}</h6>
   <h6>Valor: R${{ob.valor | currency}}</h6>
-  <
+  <div>
+    <agm-map [latitude]="ob.lat" [longitude]="ob.lon" [zoom]="15">
+
+      <agm-marker [latitude]="ob.lat" [longitude]="ob.lon"></agm-marker>
+    </agm-map>
+  </div>
   <div class="row">
     <div class="col s6 m3 l2"><a (click)="bom()"><i class="material-icons">thumb_up</i>Gostei {{ob.bom.length}}</a></div>
     <div class="col s6 m3 l2"><a (click)="ruim()"><i class="material-icons">thumb_down</i>Não Gostei {{ob.ruim.length}}</a></div>
