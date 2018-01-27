@@ -1,4 +1,6 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-lista-obras',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaObrasComponent implements OnInit {
 
-  constructor() { }
+  lista = []
+  constructor(private service: AppService, private router: Router) { }
 
   ngOnInit() {
+    this.service.buscar().subscribe(
+      res =>{
+        this.lista = res
+      }
+    )
+  }
+
+  detalhes(ob){
+    this.service.ob = ob;
+    this.router.navigate(['detalhes']); 
   }
 
 }

@@ -1,3 +1,23 @@
-<p>
-  lista-obras works!
-</p>
+<div class="container">
+  <h1>Lista Obras</h1>
+  <div class="row">
+    <div class="col s6 offset-s3 valign" *ngFor="let ob of lista">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">{{ob.id_obra}}</span>
+          <p class="grey-text text-darken-1">
+            {{ob.descricao}}
+          </p>
+        </div>
+        <div class="card-action">
+          <p class="grey-text text-darken-1">
+            Gostaram: {{ob.bom.length}}, Não Gostaram: {{ob.ruim.length}}
+            <br>Status: {{ob.status}}
+            <br> Data Inicio: {{ob.dataInicio | date:"dd 'd'e MMMM 'd'e yyyy"}}
+          </p>
+          <a class="btn-floating btn-large waves-effect waves-light green darken-2" (click)="detalhes(ob)"><i class="material-icons">add</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
