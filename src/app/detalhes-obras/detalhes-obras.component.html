@@ -1,14 +1,14 @@
 <div class="container">
-  <h4>Detalhes Obra</h4>
   <h5>{{ob.id_obra}}</h5>
   <h5>{{ob.descricao}}</h5>
-  <h6>Data inicio {{ob.dataInicio | date:"dd 'd'e MMMM 'd'e yyyy"}}</h6>
-  <h6>Data do fim previsto {{ob.dataFim | date:"dd 'd'e MMMM 'd'e yyyy"}}</h6>
+  <h6>Data Inicio {{ob.dataInicio | date:"dd 'd'e MMMM 'd'e yyyy"}}</h6>
+  <h6>Data do Fim Previsto {{ob.dataFim | date:"dd 'd'e MMMM 'd'e yyyy"}}</h6>
   <h6>Status: {{ob.status}}</h6>
   <h6>Empresa: {{ob.empresa}}</h6>
   <h6>Percentual Executado: {{ob.percentual_executado}}%</h6>
   <h6>Municipio: {{ob.municipio}}</h6>
-  <h6>Valor: R${{ob.valor}}</h6>
+  <h6>Valor: R${{ob.valor | currency}}</h6>
+  <
   <div class="row">
     <div class="col s6 m3 l2"><a (click)="bom()"><i class="material-icons">thumb_up</i>Gostei {{ob.bom.length}}</a></div>
     <div class="col s6 m3 l2"><a (click)="ruim()"><i class="material-icons">thumb_down</i>Não Gostei {{ob.ruim.length}}</a></div>
