@@ -11,6 +11,7 @@ export class DetalhesObrasComponent implements OnInit {
 
   private post;
   private ob: any;
+  
   constructor(private service: AppService) {
     this.ob = this.service.ob;
    }
@@ -32,6 +33,15 @@ export class DetalhesObrasComponent implements OnInit {
     this.service.up(this.ob).subscribe(
       res => {
         Materialize.toast("Atualizado!", 3000, "green")
+      }
+    )
+  }
+
+  comentar(){
+    this.ob.comentarios.push({texto: this.post, user:localStorage.getItem('login')})
+    this.service.up(this.ob).subscribe(
+      res => {
+        Materialize.toast("Comentado!", 3000, "green")
       }
     )
   }
