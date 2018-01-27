@@ -24,8 +24,10 @@
     </div>
     <div class="col s12 m12 l4" >
       <h5 class="col s12">Ranking <i class="material-icons">thumb_up</i></h5>
-      <div *ngFor="let item of rankingBom">
-        <p>{{item.descricao}}</p>
+      <div class="card" *ngFor="let item of rankingBom">
+        <div class="card-content">
+          {{item.descricao}}
+        </div>
       </div>
     </div>
 
