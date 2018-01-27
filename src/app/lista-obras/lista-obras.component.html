@@ -1,7 +1,7 @@
 <div class="container">
-  <h4>Lista Obras</h4>
+  <h4><i class="material-icons medium">terrain</i>Lista Obras</h4>
   <div class="row">
-    <div class="col s12 m12 l8">
+    <div class="col s12 m12 l7">
 
     <div class="col s12 m12 l12 offset-s3 valign" *ngFor="let ob of lista">
       <div class="card">
@@ -17,25 +17,32 @@
             <br>Status: {{ob.status}}
             <br> Data Inicio: {{ob.dataInicio | date:"dd 'd'e MMMM 'd'e yyyy"}}
           </p>
-          <a class="btn-floating btn-large waves-effect waves-light green darken-2" (click)="detalhes(ob)"><i class="material-icons">touch_app</i></a>
+          <a class="btn-floating btn-large waves-effect waves-light #ff9800 orange" (click)="detalhes(ob)"><i class="material-icons">touch_app</i></a>
         </div>
       </div>
     </div>
     </div>
-    <div class="col s12 m12 l4" >
-      <h5 class="col s12">Ranking <i class="material-icons">thumb_up</i></h5>
+
+    <div class="col s12 m12 l5 #4caf50 green">
+      <h5 class="white-text">Ranking <i class="material-icons">thumb_up</i></h5>
       <div class="card" *ngFor="let item of rankingBom">
         <div class="card-content">
-          {{item.descricao}}
+          <p class="grey-text text-darken-1"><b>{{(rankingBom.indexOf(item))+1}}º</b>
+            <br>{{item.descricao}}
+            <br>{{item.status}}
+          </p>
         </div>
       </div>
     </div>
 
-    <div class="col s12 m12 l4" >
-      <h5 class="col s12">Ranking <i class="material-icons">thumb_down</i></h5>
+    <div class="col s12 m12 l5 #ef5350 red lighten-1">
+
+      <h5 class="white-text">Ranking <i class="material-icons">thumb_down</i></h5>
       <div class="card" *ngFor="let item of rankingRuim">
         <div class="card-content">
-          {{item.descricao}}
+          <p><b>{{(rankingRuim.indexOf(item))+1}}º</b></p>
+          <p>{{item.descricao}}</p>
+          <p><b>{{item.status}}</b></p>
         </div>
       </div>
     </div>

@@ -28,9 +28,11 @@
     </form>
   </div>
   <div class="row">
-    <div class="card">
+    <div class="card" *ngFor="let item of ob.comentarios">
       <div class="card-content">
-        Comentarios
+        <p><b>{{item.user.nome}}</b></p>
+        <p>{{item.texto}}</p>
+        <p>{{item.data | date:"dd 'd'e MMMM 'd'e yyyy"}}</p>
       </div>
     </div>
   </div>
